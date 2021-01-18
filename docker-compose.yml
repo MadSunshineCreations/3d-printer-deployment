@@ -9,6 +9,13 @@ services:
     volumes:
       - ./webserver/conf.d/:/etc/nginx/conf.d
       - /opt/madsunshinecreations/letsencrypt:/etc/letsencrypt
+  print-simple:
+    image: madsunshinecreations/print-simple:latest
+    volumes:
+      - /opt/madsunshinecreations/print-simple/printer-list.yaml:/etc/default/printer-list.yaml
+      - /opt/madsunshinecreations/print-simple/gcode:/gcode
+  print-simple-ui:
+    image: madsunshinecreations/print-simple-ui:latest
   octoprint-basilisk:
     image: madsunshinecreations/octoprint-preconfig
     restart: unless-stopped
