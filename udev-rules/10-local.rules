@@ -1,0 +1,6 @@
+ACTION=="add", KERNELS=="3-3:1.0", SYMLINK+="ttyIgloo"
+ACTION=="add", KERNELS=="3-14:1.0", SYMLINK+="ttyDraco"
+ACTION=="add", KERNELS=="3-4:1.0", SYMLINK+="ttyBasilisk"
+ACTION=="add", KERNELS=="3-13:1.0", SYMLINK+="ttyGodzilla"
+ACTION=="add", KERNELS=="3-9:1.0", SYMLINK+="ttyShadow"
+ACTION=="add", KERNELS=="3-10:1.0", SYMLINK+="ttyTiger"

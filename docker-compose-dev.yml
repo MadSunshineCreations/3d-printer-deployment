@@ -1,0 +1,96 @@
+version: '2.4'
+
+services:
+  nginx:
+    image: madsunshinecreations/webserver:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./webserver/conf.d/:/etc/nginx/conf.d
+      - /Users/markdavenport/madsunshinecreations/secrets/letsencrypt:/etc/letsencrypt
+  octoprint-basilisk:
+    image: madsunshinecreations/octoprint-preconfig
+    restart: unless-stopped
+    ports:
+      - 5001:80
+    # devices:
+    #  - /dev/ttys000:/dev/ttyBasilisk
+    volumes:
+     - basilisk:/octoprint
+     - /Users/markdavenport/madsunshinecreations/secrets/octoprint:/startup_config
+    environment:
+     - CONFIG_FILE_NAME=basilisk_config.yaml
+     - USERS_FILE_NAME=basilisk_users.yaml
+  octoprint-draco:
+    image: madsunshinecreations/octoprint-preconfig
+    restart: unless-stopped
+    ports:
+      - 5002:80
+    # devices:
+    #  - /dev/ttyDraco:/dev/ttyDraco
+    volumes:
+     - draco:/octoprint
+     - /Users/markdavenport/madsunshinecreations/secrets/octoprint:/startup_config
+    environment:
+     - CONFIG_FILE_NAME=draco_config.yaml
+     - USERS_FILE_NAME=draco_users.yaml
+  octoprint-igloo:
+    image: madsunshinecreations/octoprint-preconfig
+    restart: unless-stopped
+    ports:
+      - 5003:80
+    # devices:
+    #  - /dev/ttyIgloo:/dev/ttyIgloo
+    volumes:
+     - igloo:/octoprint
+     - /Users/markdavenport/madsunshinecreations/secrets/octoprint:/startup_config
+    environment:
+     - CONFIG_FILE_NAME=igloo_config.yaml
+     - USERS_FILE_NAME=igloo_users.yaml
+  octoprint-tiger:
+    image: madsunshinecreations/octoprint-preconfig
+    restart: unless-stopped
+    ports:
+      - 5004:80
+    # devices:
+    #  - /dev/ttyTiger:/dev/ttyTiger
+    volumes:
+     - tiger:/octoprint
+     - /Users/markdavenport/madsunshinecreations/secrets/octoprint:/startup_config
+    environment:
+     - CONFIG_FILE_NAME=tiger_config.yaml
+     - USERS_FILE_NAME=tiger_users.yaml
+  octoprint-godzilla:
+    image: madsunshinecreations/octoprint-preconfig
+    restart: unless-stopped
+    ports:
+      - 5005:80
+    # devices:
+    #  - /dev/ttyGodzilla:/dev/ttyGodzilla
+    volumes:
+     - godzilla:/octoprint
+     - /Users/markdavenport/madsunshinecreations/secrets/octoprint:/startup_config
+    environment:
+     - CONFIG_FILE_NAME=godzilla_config.yaml
+     - USERS_FILE_NAME=godzilla_users.yaml
+  octoprint-shadow:
+    image: madsunshinecreations/octoprint-preconfig
+    restart: unless-stopped
+    ports:
+      - 5006:80
+    # devices:
+    #  - /dev/ttyShadow:/dev/ttyShadow
+    volumes:
+     - shadow:/octoprint
+     - /Users/markdavenport/madsunshinecreations/secrets/octoprint:/startup_config
+    environment:
+     - CONFIG_FILE_NAME=shadow_config.yaml
+     - USERS_FILE_NAME=shadow_users.yaml
+volumes:
+  draco:
+  igloo:
+  basilisk:
+  godzilla:
+  tiger:
+  shadow:
