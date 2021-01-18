@@ -13,7 +13,7 @@ services:
     image: madsunshinecreations/octoprint-preconfig
     restart: unless-stopped
     devices:
-     - /dev/ttys000:/dev/ttyBasilisk
+     - /dev/ttyBasilisk:/dev/ttyBasilisk
     volumes:
      - basilisk:/octoprint
      - /opt/madsunshinecreations/octoprint:/startup_config
