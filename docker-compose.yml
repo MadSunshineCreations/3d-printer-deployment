@@ -12,8 +12,6 @@ services:
   octoprint-basilisk:
     image: madsunshinecreations/octoprint-preconfig
     restart: unless-stopped
-    ports:
-      - 5001:80
     devices:
      - /dev/ttys000:/dev/ttyBasilisk
     volumes:
@@ -25,8 +23,6 @@ services:
   octoprint-draco:
     image: madsunshinecreations/octoprint-preconfig
     restart: unless-stopped
-    ports:
-      - 5002:80
     devices:
      - /dev/ttyDraco:/dev/ttyDraco
     volumes:
@@ -38,8 +34,6 @@ services:
   octoprint-igloo:
     image: madsunshinecreations/octoprint-preconfig
     restart: unless-stopped
-    ports:
-      - 5003:80
     devices:
      - /dev/ttyIgloo:/dev/ttyIgloo
     volumes:
@@ -51,8 +45,6 @@ services:
   octoprint-tiger:
     image: madsunshinecreations/octoprint-preconfig
     restart: unless-stopped
-    ports:
-      - 5004:80
     devices:
      - /dev/ttyTiger:/dev/ttyTiger
     volumes:
@@ -64,8 +56,6 @@ services:
   octoprint-godzilla:
     image: madsunshinecreations/octoprint-preconfig
     restart: unless-stopped
-    ports:
-      - 5005:80
     devices:
      - /dev/ttyGodzilla:/dev/ttyGodzilla
     volumes:
@@ -77,8 +67,6 @@ services:
   octoprint-shadow:
     image: madsunshinecreations/octoprint-preconfig
     restart: unless-stopped
-    ports:
-      - 5006:80
     devices:
      - /dev/ttyShadow:/dev/ttyShadow
     volumes:
