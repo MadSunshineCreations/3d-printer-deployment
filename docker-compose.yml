@@ -11,6 +11,7 @@ services:
       - /opt/madsunshinecreations/letsencrypt:/etc/letsencrypt
   print-simple:
     image: madsunshinecreations/print-simple:latest
+    restart: unless-stopped
     volumes:
       - /opt/madsunshinecreations/print-simple/printer-list.yaml:/etc/print-simple/printer-list.yaml
       - /opt/madsunshinecreations/print-simple/gcode:/gcode
