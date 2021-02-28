@@ -15,6 +15,9 @@ services:
     volumes:
       - /opt/madsunshinecreations/print-simple/printer-list.yaml:/etc/print-simple/printer-list.yaml
       - /opt/madsunshinecreations/print-simple/gcode:/gcode
+  etsy-orders:
+    image: madsunshinecreations/etsy-orders:latest
+    restart: unless-stopped
   print-simple-ui:
     image: madsunshinecreations/print-simple-ui:latest
   octoprint-basilisk:
