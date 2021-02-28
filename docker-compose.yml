@@ -18,6 +18,8 @@ services:
   etsy-orders:
     image: madsunshinecreations/etsy-orders:latest
     restart: unless-stopped
+    env_file:
+     - ./etsy.env
   print-simple-ui:
     image: madsunshinecreations/print-simple-ui:latest
   octoprint-basilisk:
