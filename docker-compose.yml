@@ -88,6 +88,17 @@ services:
     environment:
      - CONFIG_FILE_NAME=shadow_config.yaml
      - USERS_FILE_NAME=shadow_users.yaml
+  octoprint-creeper:
+    image: madsunshinecreations/octoprint-preconfig
+    restart: unless-stopped
+    devices:
+      - /dev/ttyCreeper:/dev/ttyCreeper
+    volumes:
+      - creeper:/octoprint
+      - /opt/madsunshinecreations/octoprint:/startup_config
+    environment:
+      - CONFIG_FILE_NAME=creeper_config.yaml
+      - USERS_FILE_NAME=creeper_users.yaml
 volumes:
   draco:
   igloo:
@@ -95,3 +106,4 @@ volumes:
   godzilla:
   tiger:
   shadow:
+  creeper:
