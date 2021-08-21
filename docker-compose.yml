@@ -9,6 +9,16 @@ services:
     volumes:
       - ./webserver/conf.d/:/etc/nginx/conf.d
       - /opt/madsunshinecreations/letsencrypt:/etc/letsencrypt
+    depends_on:
+      - print-simple
+      - etsy-orders
+      - octoprint-basilisk
+      - octoprint-godzilla
+      - octoprint-shadow
+      - octoprint-igloo
+      - octoprint-tiger
+      - octoprint-draco
+      - octoprint-creeper
   print-simple:
     image: madsunshinecreations/print-simple:latest
     restart: unless-stopped
@@ -22,6 +32,8 @@ services:
      - ./etsy.env
   print-simple-ui:
     image: madsunshinecreations/print-simple-ui:latest
+    depends_on:
+    - nginx
   octoprint-basilisk:
     image: madsunshinecreations/octoprint-preconfig
     restart: unless-stopped
