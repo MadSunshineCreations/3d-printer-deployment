@@ -11,7 +11,7 @@ services:
       - /opt/madsunshinecreations/letsencrypt:/etc/letsencrypt
     restart: unless-stopped
     depends_on: 
-      - ticker
+      - crypto-ticker
       - print-simple
       - etsy-orders
       - octoprint-basilisk
