@@ -26,7 +26,7 @@ services:
     restart: unless-stopped
     volumes:
       - /opt/madsunshinecreations/crypto-ticker-server/config:/etc/crypto-ticker-server/
-    environment: 
+    env_file: 
       - ./ticker.env
   print-simple:
     image: madsunshinecreations/print-simple:latest
