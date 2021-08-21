@@ -28,6 +28,7 @@ services:
       - /opt/madsunshinecreations/crypto-ticker-server/config:/etc/crypto-ticker-server/
     environment: 
       - BEARER_TOKEN
+      - CONFIG_PATH=/etc/crypto-ticker-server
   print-simple:
     image: madsunshinecreations/print-simple:latest
     restart: unless-stopped
