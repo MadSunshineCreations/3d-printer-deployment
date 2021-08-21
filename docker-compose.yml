@@ -21,7 +21,7 @@ services:
       - octoprint-creeper
       - octoprint-tiger
       - octoprint-shadow
-  ticker:
+  crypto-ticker:
     image: madsunshinecreations/crypto-ticker-server:latest
     restart: unless-stopped
     volumes:
