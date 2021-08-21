@@ -9,16 +9,25 @@ services:
     volumes:
       - ./webserver/conf.d/:/etc/nginx/conf.d
       - /opt/madsunshinecreations/letsencrypt:/etc/letsencrypt
-    depends_on:
+    restart: unless-stopped
+    depends_on: 
+      - ticker
       - print-simple
       - etsy-orders
       - octoprint-basilisk
-      - octoprint-godzilla
-      - octoprint-shadow
-      - octoprint-igloo
-      - octoprint-tiger
       - octoprint-draco
+      - octoprint-igloo
+      - octoprint-godzilla
       - octoprint-creeper
+      - octoprint-tiger
+      - octoprint-shadow
+  ticker:
+    image: madsunshinecreations/crypto-ticker-server:latest
+    restart: unless-stopped
+    volumes:
+      - /opt/madsunshinecreations/crypto-ticker-server/config:/etc/crypto-ticker-server/
+    environment: 
+      - BEARER_TOKEN
   print-simple:
     image: madsunshinecreations/print-simple:latest
     restart: unless-stopped
